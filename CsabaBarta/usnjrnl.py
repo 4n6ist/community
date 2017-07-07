@@ -32,7 +32,7 @@ import struct
 import binascii
 import re
 import volatility.constants
-import csv
+#import csv
 import sys
 
 REASONSCODES = {

@@ -29,7 +29,7 @@ import volatility.timefmt as timefmt
 import struct
 import binascii
 import re
-import csv
+#import csv
 import sys
 import datetime
 

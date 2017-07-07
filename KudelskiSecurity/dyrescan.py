@@ -36,15 +36,17 @@ YARA_SIGS = {
 }
 
 config = conf.ConfObject()
-config.add_option('CONFSIZE', short_option='C', default=190000,
-                           help='Config data size',
-                           action='store', type='int')
-config.add_option('YARAOFFSET', short_option='Y', default=0,
-                           help='YARA start offset',
-                           action='store', type='int')
 
 class DyreScan(taskmods.PSList):
     """ Extract Dyre Configuration from processes """
+    def __init__(self, config, *args, **kwargs):
+        taskmods.PSList.__init__(self, config, *args, **kwargs)
+        config.add_option('CONFSIZE', short_option='C', default=190000,
+                           help='Config data size',
+                           action='store', type='int')
+        config.add_option('YARAOFFSET', short_option='Y', default=0,
+                           help='YARA start offset',
+                           action='store', type='int')
 
     def get_vad_base(self, task, address):
         for vad in task.VadRoot.traverse():

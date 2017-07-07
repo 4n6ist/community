@@ -24,7 +24,7 @@
 import volatility.plugins.linux.common as linux_common
 import volatility.utils as utils
 import volatility.scan as scan
-import csv
+#import csv
 import struct
 import datetime
 import math

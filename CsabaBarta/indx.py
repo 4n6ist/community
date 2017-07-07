@@ -30,7 +30,7 @@ import binascii
 import re
 import volatility.constants
 import volatility.timefmt as timefmt
-import csv
+#import csv
 import sys
 import datetime
 

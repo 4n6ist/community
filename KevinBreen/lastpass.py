@@ -29,16 +29,19 @@ signatures = {
                          'rule lastpass_priv1 {strings: $a = /LastPassPrivateKey<(.*?)>LastPassPrivateKey/ condition: $a}'
 }
 
-config = conf.ConfObject()
-config.add_option('CONFSIZE', short_option='C', default=4000,
-                           help ='Config data size',
-                           action ='store', type='int')
-config.add_option('YARAOFFSET', short_option='Y', default=0,
-                           help ='YARA start offset',
-                           action ='store', type='int')
+#config = conf.ConfObject()
 
 class LastPass(taskmods.PSList):
     """ Extract lastpass data from process. """
+    def __init__(self, config, *args, **kwargs):
+        taskmods.PSList.__init__(self, config, *args, **kwargs)
+        config.add_option('CONFSIZE', short_option='C', default=4000,
+                           help ='Config data size',
+                           action ='store', type='int')
+        config.add_option('YARAOFFSET', short_option='Y', default=0,
+                           help ='YARA start offset',
+                           action ='store', type='int')
+        self.config = config
 
     def calculate(self):
         """ Required: Runs YARA search to find hits """

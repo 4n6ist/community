@@ -7,7 +7,7 @@ from volatility.renderers.basic import Address
 import volatility.poolscan as poolscan
 class KeyPoolScan(poolscan.SinglePoolScanner):
     """ Pool scanner """
-class Bitlocker(common.AbstractWindowsCommand):
+class Bitlocker10(common.AbstractWindowsCommand):
     """Extract Bitlocker FVEK. Supports Windows 7 - 10."""
     def __init__(self, config, *args, **kwargs):
         common.AbstractWindowsCommand.__init__(self, config, *args, **kwargs)
